@@ -6,26 +6,29 @@ const Home = () => {
   const [gists, setGists] = React.useState([]);
   const [inputValue, setInputValue] = React.useState("");
 
-  const getPublicGists = async username => {
-    const data = await fetchGistByUsername(username);
+  const getPublicGists = async (e) => {
+    e.preventDefault();
+    const data = await fetchGistByUsername(inputValue);
     setGists(data);
   };
 
   const handleChange = e => {
+    e.preventDefault();
     setInputValue(e.target.value);
-    console.log(e.target.value);
   };
-  
+
   return (
     <div>
       <div>
         <form>
           <label>Search by user name</label>
           <input type="text" value={inputValue} onChange={handleChange} />
-          <button onClick={() => getPublicGists(inputValue)}>Search</button>
+          <button onClick={getPublicGists}>Search</button>
         </form>
       </div>
-      <GistItem />
+      { gists.map((gist) => {
+        return <GistItem gist={gist}/>
+      })}
     </div>
   );
 };

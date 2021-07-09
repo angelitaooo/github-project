@@ -6,8 +6,9 @@ import {
 const GistItem = ({ gist }) => {
   return (
     <li>
-      {/* <Link to={`/gist-detail/${gist.id}`}>{gist.name}</Link> */}
-      <Link to={`/gist-detail/1`}>test</Link>
+      <Link to={`/gist-detail/${gist.id}`}>Gist id: {gist.id}</Link>
+      <p>{gist.description}</p>
+      <p>{gist.created_at}</p>
     </li>
   );
 };
