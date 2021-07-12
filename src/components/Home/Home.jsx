@@ -12,22 +12,35 @@ const Home = () => {
     setGists(data);
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     e.preventDefault();
     setInputValue(e.target.value);
   };
 
   return (
-    <div>
-      <div>
-        <form>
-          <label>Search by user name</label>
-          <input type="text" value={inputValue} onChange={handleChange} />
-          <button onClick={getPublicGists}>Search</button>
-        </form>
-      </div>
-      { gists.map((gist) => {
-        return <GistItem gist={gist}/>
+    <div className="container mt-4 mb-4">
+        
+          <form className="d-flex mb-5">
+            <label className="form-label">Search by user name</label>
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={inputValue}
+              onChange={handleChange}
+            />
+            <button
+              className="btn btn-outline-success"
+              onClick={getPublicGists}
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+        
+      {gists.map((gist) => {
+        return <GistItem gist={gist} />;
       })}
     </div>
   );

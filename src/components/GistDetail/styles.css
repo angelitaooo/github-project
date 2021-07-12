@@ -1,9 +1,12 @@
 .avatar {
-    max-width: 100px;
-    max-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  -webkit-box-shadow: 1px 2px 15px 2px rgba(132, 132, 132, 0.96);
+  box-shadow: 1px 2px 15px 2px rgba(132, 132, 132, 0.96);
+  border-radius: 50%;
 }
 
 .content-wrapper {
-    border: 1px solid black;
-    padding: 5px;
+  border: 1px solid black;
+  padding: 5px;
 }
